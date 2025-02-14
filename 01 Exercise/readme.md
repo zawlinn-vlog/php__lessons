@@ -73,21 +73,26 @@ IN Addition &mdash;
     - Infinity
     - NaN
 
-- 2, 256, -256, 10358, -179567 are all integers.
+### Integer &mdash;
 
-- An integer is a number without any decimal part.
+2, 256, -256, 10358, -179567 are all integers.
 
-- An integer data type is a non-decimal number between -2147483648 and 2147483647 in 32 bit systems, and between -9223372036854775808 and 9223372036854775807 in 64 bit systems. A value greater (or lower) than this, will be stored as float, because it exceeds the limit of an integer.
+An integer is a number without any decimal part.
 
-> Note: Another important thing to know is that even if 4 \* 2.5 is 10, the result is stored as float, because one of the operands is a float (2.5).
+An integer data type is a non-decimal number between `-2147483648` and `2147483647` in `32 bit` systems, and between `-9223372036854775808` and `9223372036854775807` in `64 bit` systems. A value greater (or lower) than this, will be stored as float, because it exceeds the limit of an integer.
+
+> Note: Another important thing to know is that even if `4 \* 2.5` is `10`, the result is stored as float, because one of the operands is a float `(2.5)`.
 
 Here are some rules for integers:
 
 - An integer must have at least one digit
 - An integer must NOT have a decimal point
 - An integer can be either positive or negative
-  Integers can be specified in three formats: decimal (base 10), hexadecimal (base 16 - prefixed with 0x), octal (base 8 - prefixed with 0) or binary (base 2 - prefixed with 0b)
-- PHP has the following predefined constants for integers:
+  Integers can be specified in three formats: `decimal (base 10)`, `hexadecimal (base 16 - prefixed with 0x)`, `octal (base 8 - prefixed with 0)` or `binary (base 2 - prefixed with 0b)`
+
+  <br/>
+
+PHP has the following predefined constants for integers:
 
 - `PHP_INT_MAX` - The largest integer supported
 - `PHP_INT_MIN` - The smallest integer supported
@@ -110,16 +115,16 @@ Here are some rules for integers:
 
 A float is a number with a decimal point or a number in exponential form.
 
-2.0, 256.4, 10.358, 7.64E+5, 5.56E-5 are all floats.
+`2.0`, `256.4`, `10.358`, `7.64E+5`, `5.56E-5` are all floats.
 
-The float data type can commonly store a value up to 1.7976931348623E+308 (platform dependent), and have a maximum precision of 14 digits.
+The float data type can commonly store a value up to `1.7976931348623E+308` (platform dependent), and have a `maximum precision of 14 digits`.
 
-PHP has the following predefined constants for floats (from PHP 7.2):
+PHP has the following predefined constants for floats `(from PHP 7.2)`:
 
 - `PHP_FLOAT_MAX` - The largest representable floating point number
 - `PHP_FLOAT_MIN` - The smallest representable positive floating point number
 - `PHP_FLOAT_DIG` - The number of decimal digits that can be rounded into a float and back without precision loss
-- `PHP_FLOAT_EPSILON` - The smallest representable positive number x, so that x + 1.0 != 1.0
+- `PHP_FLOAT_EPSILON` - The smallest representable positive number` x, so that x + 1.0 != 1.0`
 
 <br/>
 
@@ -140,25 +145,25 @@ PHP has the following functions to check if a numeric value is finite or infinit
 - `is_finite()`
 - `is_infinite()`
 
-  However, the PHP var_dump() function returns the data type and value:
+  However, the PHP `var_dump()` function returns the data type and value:
 
 ### NaN &mdash;
 
-NaN stands for Not a Number.
+`NaN` stands for Not a Number.
 
-NaN is used for impossible mathematical operations.
+`NaN` is used for impossible mathematical operations.
 
 PHP has the following functions to check if a value is not a number:
 
 - `is_nan()`
 
-However, the PHP var_dump() function returns the data type and value:
+However, the PHP `var_dump()` function returns the data type and value:
 
 ### PHP Numerical Strings &mdash;
 
 The PHP `is_numeric()` function can be used to find whether a variable is numeric. The function returns true if the variable is a number or a numeric string, false otherwise.
 
-> Note: From PHP 7.0: The `is_numeric()` function will return `FALSE` for numeric strings in hexadecimal form (e.g. 0xf4c3b00c), as they are no longer considered as numeric strings
+> Note: From PHP 7.0: The `is_numeric()` function will return `FALSE` for numeric strings in hexadecimal form (e.g. `0xf4c3b00c`), as they are no longer considered as numeric strings
 
 ### PHP Casting Strings and Floats to Integers &mdash;
 
@@ -191,11 +196,11 @@ Casting in PHP is done with these statements:
 
 #### (bool) $str &mdash;
 
-> If a value is 0, NULL, false, or empty, the (bool) converts it into false, otherwise true. Even -1 converts to true.
+> If a value is `0`, `NULL`, `false`, or `empty`, the (`bool`) converts it into `false`, otherwise `true`. Even `-1` converts to `true`.
 
 #### PHP Constants &mdash;
 
-A constant is an identifier (name) for a simple value. The value cannot be changed during the script.
+A constant is an identifier (`name`) for a simple value. The value cannot be changed during the script.
 
 A valid constant name starts with a letter or underscore (no `$` sign before the `constant` name).
 
