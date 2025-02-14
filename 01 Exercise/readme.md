@@ -32,6 +32,8 @@
       // multi line comment /* */
 ```
 
+<hr />
+
 #### DATA TYPEs &mdash;
 
 Variables can store data of different types, and different data types can do different things.
@@ -47,6 +49,8 @@ PHP supports the following data types: &mdash;
 - NULL
 - Resource
 
+<hr/>
+
 ### Strings
 
 Strings in PHP are surrounded by either double quotation marks, or single quotation marks.
@@ -61,6 +65,8 @@ Strings in PHP are surrounded by either double quotation marks, or single quotat
 - str_replace('old world', 'new world', $str)
 - explode(' ', $str) // return an array;
 - substr($str, startpoint, length) // Slicing String
+
+<hr/>
 
 ### Numbers &mdash;
 
@@ -97,10 +103,10 @@ PHP has the following predefined constants for integers:
 - `PHP_INT_MAX` - The largest integer supported
 - `PHP_INT_MIN` - The smallest integer supported
 - `PHP_INT_SIZE` - The size of an integer in bytes
-  <br/>
-  <br/>
 
-  > PHP has the following functions to check if the type of a variable is integer:
+<br/>
+
+> PHP has the following functions to check if the type of a variable is integer:
 
   <br/>
 
@@ -108,7 +114,7 @@ PHP has the following predefined constants for integers:
 - `is_integer()` - alias of is_int()
 - `is_long()` - alias of is_int()
 
-<br />
+<hr/>
 <br />
 
 ### FLOAT &mdash;
@@ -133,7 +139,7 @@ PHP has the following predefined constants for floats `(from PHP 7.2)`:
 - `is_float()`
 - `is_double()` - alias of is_float()
 
-<br />
+<hr/>
 <br />
 
 ### Infinity &mdash;
@@ -147,6 +153,9 @@ PHP has the following functions to check if a numeric value is finite or infinit
 
   However, the PHP `var_dump()` function returns the data type and value:
 
+<hr/>
+<br/>
+
 ### NaN &mdash;
 
 `NaN` stands for Not a Number.
@@ -159,11 +168,17 @@ PHP has the following functions to check if a value is not a number:
 
 However, the PHP `var_dump()` function returns the data type and value:
 
+<hr/>
+<br/>
+
 ### PHP Numerical Strings &mdash;
 
 The PHP `is_numeric()` function can be used to find whether a variable is numeric. The function returns true if the variable is a number or a numeric string, false otherwise.
 
 > Note: From PHP 7.0: The `is_numeric()` function will return `FALSE` for numeric strings in hexadecimal form (e.g. `0xf4c3b00c`), as they are no longer considered as numeric strings
+
+<hr/>
+<br/>
 
 ### PHP Casting Strings and Floats to Integers &mdash;
 
@@ -177,6 +192,9 @@ eg.
     $strnum = '10px';
     echo (int)$strnum;
 ```
+
+<hr/>
+<br/>
 
 ### CASTING &mdash;
 
@@ -197,6 +215,9 @@ Casting in PHP is done with these statements:
 #### (bool) $str &mdash;
 
 > If a value is `0`, `NULL`, `false`, or `empty`, the (`bool`) converts it into `false`, otherwise `true`. Even `-1` converts to `true`.
+
+<hr/>
+<br/>
 
 #### PHP Constants &mdash;
 
