@@ -159,16 +159,69 @@ echo trim($str);
 
 #### reverse string
 
-echo "<br/>";
+// echo "<br/>";
 
-echo strrev($str);
+// echo strrev($str);
 
 #### STRING to SPRIT AS AN ARRAY
 
-echo "<br/>";
-$ary =  explode(' ', $str);
+// echo "<br/>";
+// $ary =  explode(' ', $str);
 
-print_r($ary);
+// print_r($ary);
+
+### STRING substr(str)
+// echo substr($str, 5);
+
+### NUMBER 
+/*
+    - Interger
+    - Float
+    - Number String
+
+    Addition
+    - Infinity
+    - NaN
+*/
+
+$strnum = '10px';
+    echo (int)$strnum;
+    var_dump((integer)$strnum);
+    var_dump(intval($strnum));
+
+
+    # Casting
+
+    $a = 5;       // Integer
+    $b = 5.34;    // Float
+    $c = "hello"; // String
+    $d = true;    // Boolean
+    $e = NULL;    // NULL
+    
+    $a = (array) $a;
+    $b = (array) $b;
+    $c = (array) $c;
+    $d = (array) $d;
+    $e = (array) $e;
+
+   print_r($a);
+   print_r($b);
+   print_r($c);
+   print_r($d);
+   print_r($e);
+
+
+   define('USERNAME', 'root');
+
+   echo USERNAME;
+
+   // CONSTANT VARIALBE
+
+   const MYCAR = 'Toyota';
+   echo MYCAR;
+
+
+
 
 
 ?>
