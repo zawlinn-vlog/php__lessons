@@ -115,7 +115,6 @@ PHP has the following predefined constants for integers:
 - `is_long()` - alias of is_int()
 
 <hr/>
-<br />
 
 ### FLOAT &mdash;
 
@@ -140,7 +139,6 @@ PHP has the following predefined constants for floats `(from PHP 7.2)`:
 - `is_double()` - alias of is_float()
 
 <hr/>
-<br />
 
 ### Infinity &mdash;
 
@@ -154,7 +152,6 @@ PHP has the following functions to check if a numeric value is finite or infinit
   However, the PHP `var_dump()` function returns the data type and value:
 
 <hr/>
-<br/>
 
 ### NaN &mdash;
 
@@ -169,7 +166,6 @@ PHP has the following functions to check if a value is not a number:
 However, the PHP `var_dump()` function returns the data type and value:
 
 <hr/>
-<br/>
 
 ### PHP Numerical Strings &mdash;
 
@@ -178,7 +174,6 @@ The PHP `is_numeric()` function can be used to find whether a variable is numeri
 > Note: From PHP 7.0: The `is_numeric()` function will return `FALSE` for numeric strings in hexadecimal form (e.g. `0xf4c3b00c`), as they are no longer considered as numeric strings
 
 <hr/>
-<br/>
 
 ### PHP Casting Strings and Floats to Integers &mdash;
 
@@ -194,7 +189,6 @@ eg.
 ```
 
 <hr/>
-<br/>
 
 ### CASTING &mdash;
 
@@ -217,7 +211,6 @@ Casting in PHP is done with these statements:
 > If a value is `0`, `NULL`, `false`, or `empty`, the (`bool`) converts it into `false`, otherwise `true`. Even `-1` converts to `true`.
 
 <hr/>
-<br/>
 
 #### PHP Constants &mdash;
 
