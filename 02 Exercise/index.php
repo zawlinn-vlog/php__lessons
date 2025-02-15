@@ -191,6 +191,43 @@
     var_dump($mArr);
 
     echo $mArr[2][1];
+
+    for ($i =0; $i < count($arr); $i++){
+        echo $arr[$i] . "<br/>";
+    }
+
+    for($i = 0; $i < count($mArr); $i++){
+        for($j = 0; $j < count($mArr[$i]); $j++){
+            echo $mArr[$i][$j] . "<br/>";
+        }
+    }
+
+    foreach ($arr as $val){
+        echo $val. "<br/>";
+    }
+
+    foreach($ascArr as $key => $val){
+        echo "$key has $val. <br/>";
+    }
+
+
+    # FUNCTION
+
+    function doIt(){
+        echo "This is doit Function.";
+    }
+
+    // doIt();
+
+    $one = 'doIt';
+
+    $one();
+
+    function doItpara($name){
+        echo "This is doIt with para $name name.";
+    }
+
+    doItpara("Testing");
  
     ?>
 
