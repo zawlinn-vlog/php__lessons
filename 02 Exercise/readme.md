@@ -129,6 +129,4 @@ What I use packages are &mdash;
 - :heart: In a relationship with React
 </details>
 
-```
 
-```

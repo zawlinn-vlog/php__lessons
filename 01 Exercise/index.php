@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
-<body>
+<body class="p-5">
 
 <?php
 
@@ -221,8 +221,12 @@ $strnum = '10px';
    echo MYCAR;
 
 
+$doc = <<<START
+    <h3 class='text-primary'> This is Heading </h3>
+    <button class='btn btn-primary'> Click Me </button>
+START;
 
-
+echo $doc;
 
 ?>
     
