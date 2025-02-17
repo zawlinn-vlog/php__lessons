@@ -9,23 +9,36 @@
     <body class="p-5">
 
 
-    <?php
-            if(isset($_POST['submit'])){
-                $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $country = $_POST['country'];
-                $gender = $_POST['gender'];
-                $agree = $_POST['agree'];
+         <?php
+
+         $fname = '';
+         $lname = '';
+         $uname = '';
+         $email = '';
+         $country = '';
+         $gender = '';
+         $dob = '';
+         $agree = '';
+
+
+            if(isset($_REQUEST['submit'])){
+                $fname = $_REQUEST['fname'];
+                $lname = $_REQUEST['lname'];
+                $uname = $_REQUEST['username'];
+                $email = $_REQUEST['email'];
+                $country = $_REQUEST['country'];
+                $gender = $_REQUEST['gender'];
+                $agree = $_REQUEST['agree'];
+                $dob = $_REQUEST['dob'];
+
+                # FILE UPLOAD
 
                 $file = $_FILES['file'];
-                echo $file['error'];
-                $fdir = $file['name'];
-                move_uploaded_file($file["tmp_name"], "./assets/media/$fdir");
 
-                var_dump($file);
+                move_uploaded_file($file["tmp_name"], "./assets/media/".$file["name"]);
+                
             }
+
         ?>
 
        
@@ -34,30 +47,30 @@
             <div class="row gap-3">
                 <div class="col border border-primary rounded p-5">
                     <h3 class="text-primary mb-4">Register &mdash;</h3>
-                    <form action="<?php $_PHP_SELF ?>" method="post" enctype="multipart/form-data" class="d-grid gap-4">
+                    <form action="<?php $_PHP_SELF ?>" method="post" enctype="multipart/form-data" class="d-grid gap-4" >
                        <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="fname" class="form-label">First Name &mdash;</label>
-                                    <input type="text" name="fname" id="fname" class="form-control">
+                                    <input type="text" name="fname" id="fname" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="lname" class="form-label">Last Name &mdash;</label>
-                                    <input type="text" name="lname" id="lname" class="form-control">
+                                    <input type="text" name="lname" id="lname" class="form-control" required>
                                 </div>
                             </div>
                        </div>
 
                        <div class="form-group">
                         <label for="username" class="form-label">Username &mdash;</label>
-                        <input type="text" name="username" id="username" class="form-control">
+                        <input type="text" name="username" id="username" class="form-control" required>
                        </div>
 
                        <div class="form-group">
                         <label for="email" class="form-label">Email &mdash;</label>
-                        <input type="email" name="email" id="email" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control"required>
                        </div>
 
                        <div class="form-group">
@@ -66,7 +79,7 @@
                        </div>
 
                        <div class="form-group">
-                        <select name="country" id="" class="form-select">
+                        <select name="country" id="" class="form-select" required>
                             <option value="">Choose Your Country</option>
                             <option value="mm">Myanmar</option>
                             <option value="th">Thailand</option>
@@ -98,7 +111,7 @@
                         </div>
                         
                         <div class="form-check form-switch">
-                            <input type="checkbox" name="agree" id="agree" class="form-check-input">
+                            <input type="checkbox" name="agree" id="agree" class="form-check-input" value="1" required checked>
                             <label for="agree" class="form-check-label">I accept all of agreement and policy</label>
                         </div>
 
@@ -112,14 +125,14 @@
 
                     <div class="d-grid mt-5">
                         <ul class="list-group">
-                            <li class="list-group-item py-3 mb-3 border border-muted"> First Name : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Last Name : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Username : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Email : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Country : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Date of Birth : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Gender : <span class="text-primary"><?php  ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Agreement : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> First Name : <span class="text-primary"><?php echo $fname ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Last Name : <span class="text-primary"><?php echo $lname ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Username : <span class="text-primary"><?php echo $uname ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Email : <span class="text-primary"><?php echo $email ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Country : <span class="text-primary"><?php echo $country  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Date of Birth : <span class="text-primary"><?php echo $dob;  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Gender : <span class="text-primary"><?php echo $gender; ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Agreement : <span class="text-primary"><?php echo $agree; ?></span></li>
                         </ul>
                     </div>
                 </div>
