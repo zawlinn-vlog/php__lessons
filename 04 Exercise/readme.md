@@ -1,6 +1,6 @@
 [![php](https://img.shields.io/badge/PHP-000?style=for-the-badge—=ko-fi—=white)](#)
 
-> I'm Zaw Linn Tun a Frontend Web Developer on [Zaw Linn - Vlog](https://www.youtube.com/@zawlinn-vlog). :heart:
+> I'm Zaw Linn Tun a Frontend Web Developer on [Zaw Linn - Vlog](https://www.github.com/zawlinn-vlog). :heart:
 
 <!-- #### PROJECT SIMPLE &mdash; -->
 
@@ -36,6 +36,16 @@
     echo $data;
 ```
 
+or
+
+```php
+    if(isset($_REQUEST["open"])){
+        if(file_exists($file)){
+            $dataString = file_get_contents($file);
+        }
+    }
+```
+
 #### Applied Data on File &mdash;
 
 ```php
@@ -51,7 +61,7 @@
 
 What I use packages are &mdash;
 
-[![My Skills](https://skillicons.dev/icons?i=mysql,npm,git,github,vscode&perline=3)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=mysql,npm,git,github,vscode,php&perline=3)](https://skillicons.dev)
 
 <br>
 
@@ -67,7 +77,7 @@ What I use packages are &mdash;
 
 <details>
     <summary>
-        My Portfolio
+        My Portfolio &mdash;
     </summary>
     <br/>
 

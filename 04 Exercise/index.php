@@ -12,7 +12,7 @@
 
             $createFile = false;
            
-            $dataString = '';
+            $dataString = 'Empty Data';
 
             $file = "./assets/doc/comments.txt";
            
@@ -43,9 +43,12 @@
             }
             if(isset($_REQUEST["open"])){
                 if(file_exists($file)){
-                    $handler = fopen($file, 'r');
-                    $fsize = filesize($file);
-                    $dataString = fread($handler, $fsize);
+                    // $handler = fopen($file, 'r');
+                    // $fsize = filesize($file);
+                    // $dataString = fread($handler, $fsize);
+
+                    $dataString = file_get_contents($file);
+                   
                 }
             }
             if(isset($_REQUEST["apply"])){
