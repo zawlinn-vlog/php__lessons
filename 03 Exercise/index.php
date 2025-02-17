@@ -8,12 +8,126 @@
     </head>
     <body class="p-5">
 
+
+    <?php
+            if(isset($_POST['submit'])){
+                $fname = $_POST['fname'];
+                $lname = $_POST['lname'];
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $country = $_POST['country'];
+                $gender = $_POST['gender'];
+                $agree = $_POST['agree'];
+
+                $file = $_FILES['file'];
+                echo $file['error'];
+                $fdir = $file['name'];
+                move_uploaded_file($file["tmp_name"], "./assets/media/$fdir");
+
+                var_dump($file);
+            }
+        ?>
+
+       
+
         <div class="container">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col"></div>
+            <div class="row gap-3">
+                <div class="col border border-primary rounded p-5">
+                    <h3 class="text-primary mb-4">Register &mdash;</h3>
+                    <form action="<?php $_PHP_SELF ?>" method="post" enctype="multipart/form-data" class="d-grid gap-4">
+                       <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="fname" class="form-label">First Name &mdash;</label>
+                                    <input type="text" name="fname" id="fname" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="lname" class="form-label">Last Name &mdash;</label>
+                                    <input type="text" name="lname" id="lname" class="form-control">
+                                </div>
+                            </div>
+                       </div>
+
+                       <div class="form-group">
+                        <label for="username" class="form-label">Username &mdash;</label>
+                        <input type="text" name="username" id="username" class="form-control">
+                       </div>
+
+                       <div class="form-group">
+                        <label for="email" class="form-label">Email &mdash;</label>
+                        <input type="email" name="email" id="email" class="form-control">
+                       </div>
+
+                       <div class="form-group">
+                        <label for="fileupl" class="form-label">Upload your Photo &mdash;</label>
+                        <input type="file" name="file" id="filupl" class="form-control">
+                       </div>
+
+                       <div class="form-group">
+                        <select name="country" id="" class="form-select">
+                            <option value="">Choose Your Country</option>
+                            <option value="mm">Myanmar</option>
+                            <option value="th">Thailand</option>
+                            <option value="ind">India</option>
+                            <option value="malay">Malaysia</option>
+                        </select>
+                       </div>
+
+                       <div class="form-group">
+                        <label for="dob" class="form-label">Date of Birth &mdash;</label>
+                        <input type="date" name="dob" id="dob" class="form-control">
+                       </div>
+
+                       
+                        <div class="d-flex gap-5 mt-3">
+                            <div class="form-check form">
+                                <input type="radio" name="gender" id="male" class="form-check-input" checked value="0">
+                                <label for="male" class="form-label-label">Male</label>
+                            </div>
+                                        
+                            <div class="form-check ">
+                                <input type="radio" name="gender" id="female" class="form-check-input" value="1">
+                                <label for="female" class="form-label-label">FeMale</label>
+                            </div>
+                            <div class="form-check ">
+                                <input type="radio" name="gender" id="other" class="form-check-input" value="2">
+                                <label for="other" class="form-label-label">Other</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check form-switch">
+                            <input type="checkbox" name="agree" id="agree" class="form-check-input">
+                            <label for="agree" class="form-check-label">I accept all of agreement and policy</label>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary ms-auto px-5" type="submit" name="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col border border-primary rounded p-5">
+                    <h3 class="text-primary">Register User Data &mdash;</h3>
+
+                    <div class="d-grid mt-5">
+                        <ul class="list-group">
+                            <li class="list-group-item py-3 mb-3 border border-muted"> First Name : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Last Name : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Username : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Email : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Country : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Date of Birth : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Gender : <span class="text-primary"><?php  ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Agreement : <span class="text-primary"><?php  ?></span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+       
 
 
         <?php
