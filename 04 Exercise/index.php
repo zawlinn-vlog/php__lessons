@@ -19,14 +19,11 @@
 
         // Create Comment File
 
-           (function($f){
+            (function($f){
                 if(!file_exists($f)){
-                    $handler = fopen($f,'w');
-                   
+                    $handler = fopen($f,'w');           
                 }
-           })($file);
-
-
+            })($file);
 
             if(isset($_REQUEST["create"])){
                 $commentsData = $_REQUEST["comment"];
@@ -93,5 +90,7 @@
             </div>
         </div>
     </div>
+
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>

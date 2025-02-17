@@ -14,26 +14,33 @@
 
 ```php
     $filepath = "./assets/doc/comment.txt";
-    fopen($filepath, "w"); # WRITE MODE
+
+    if(file_exists($file)){
+        fopen($filepath, "w"); # WRITE MODE
+    }
 ```
 
 #### Written Data on File &mdash;
 
 ```php
-    $filepath = "./assets/doc/comment.txt";
-    $handler = fopen($filepath, "w"); # WRITE MODE
-    fwrite($handler, "Data String");
-    fclose($handler);
+    if(file_exists($file)){
+        $handler = fopen($file, 'w');
+        fwrite($handler, $commentsData);
+        $dataString = 'File is Written.';
+        fclose($handler);
+    }
 ```
 
 #### Read Data on File &mdash;
 
 ```php
+  if(file_exists($file)){
     $filepath = "./assets/doc/comment.txt";
     $fsize = filesize($filepath);
     $handler = fopen($filepath, "r"); # READ MODE
     $data = fread($handler, $fsize);
     echo $data;
+  }
 ```
 
 or
@@ -49,10 +56,12 @@ or
 #### Applied Data on File &mdash;
 
 ```php
+  if(file_exists($file)){
     $filepath = "./assets/doc/comment.txt";
     $handler = fopen($filepath, "a"); # APPLY MODE
     fwrite($handler, "Data String");
     fclose($handler);
+  }
 ```
 
 <br>
