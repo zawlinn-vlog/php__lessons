@@ -164,6 +164,13 @@
                             }
                         }
 
+
+                        $f = "./assets/media/text.txt";
+                        $h = fopen($f,"r");
+                        $size = filesize($f);
+                        $fileData = fread($h, $size);
+                        echo $fileData;
+
                             
                         ?>
                              
