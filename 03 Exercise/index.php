@@ -20,6 +20,8 @@
          $dob = '';
          $agree = '';
 
+         $data = array();
+
 
             if(isset($_REQUEST['submit'])){
                 $fname = $_REQUEST['fname'];
@@ -31,6 +33,17 @@
                 $agree = $_REQUEST['agree'];
                 $dob = $_REQUEST['dob'];
 
+
+                $data["First Name"] = $fname;
+                $data["Last Name"]  = $lname;
+                $data["Username"]  = $uname;
+                $data["Email"] = $email;
+                $data["Country"] = $country;
+                $data['dob'] = $dob;
+                $data['gender']  = $gender;
+                $data['agree'] = $agree;
+                
+
                 # FILE UPLOAD
 
                 $file = $_FILES['file'];
@@ -38,6 +51,11 @@
                 move_uploaded_file($file["tmp_name"], "./assets/media/".$file["name"]);
                 
             }
+
+
+            var_dump($data);
+
+
 
         ?>
 
@@ -125,14 +143,16 @@
 
                     <div class="d-grid mt-5">
                         <ul class="list-group">
-                            <li class="list-group-item py-3 mb-3 border border-muted"> First Name : <span class="text-primary"><?php echo $fname ?></span></li>
+                             <!-- <li class="list-group-item py-3 mb-3 border border-muted"> First Name : <span class="text-primary"><?php echo $fname ?></span></li>
                             <li class="list-group-item py-3 mb-3 border border-muted"> Last Name : <span class="text-primary"><?php echo $lname ?></span></li>
                             <li class="list-group-item py-3 mb-3 border border-muted"> Username : <span class="text-primary"><?php echo $uname ?></span></li>
                             <li class="list-group-item py-3 mb-3 border border-muted"> Email : <span class="text-primary"><?php echo $email ?></span></li>
                             <li class="list-group-item py-3 mb-3 border border-muted"> Country : <span class="text-primary"><?php echo $country  ?></span></li>
                             <li class="list-group-item py-3 mb-3 border border-muted"> Date of Birth : <span class="text-primary"><?php echo $dob;  ?></span></li>
                             <li class="list-group-item py-3 mb-3 border border-muted"> Gender : <span class="text-primary"><?php echo $gender; ?></span></li>
-                            <li class="list-group-item py-3 mb-3 border border-muted"> Agreement : <span class="text-primary"><?php echo $agree; ?></span></li>
+                            <li class="list-group-item py-3 mb-3 border border-muted"> Agreement : <span class="text-primary"><?php echo $agree; ?></span></li>  -->
+
+                            
                         </ul>
                     </div>
                 </div>
