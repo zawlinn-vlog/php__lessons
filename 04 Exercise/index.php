@@ -11,16 +11,53 @@
         <?php
 
             $createFile = false;
+           
             $dataString = '';
 
+            $file = "./assets/doc/comments.txt";
+           
+
+        // Create Comment File
+
+           (function($f){
+                if(!file_exists($f)){
+                    $handler = fopen($f,'w');
+                   
+                }
+           })($file);
+
+
+
             if(isset($_REQUEST["create"])){
-                echo !$createFile;
+                $commentsData = $_REQUEST["comment"];
+
+                if(file_exists($file)){
+                    $handler = fopen($file, 'w');
+                   
+                    fwrite($handler, $commentsData);
+                    
+                    $dataString = 'File is Written.';
+
+                    fclose($handler);
+                }
             }
             if(isset($_REQUEST["open"])){
-                echo "File is opened.";
+                if(file_exists($file)){
+                    $handler = fopen($file, 'r');
+                    $fsize = filesize($file);
+                    $dataString = fread($handler, $fsize);
+                }
             }
             if(isset($_REQUEST["apply"])){
-                echo "File is applied.";
+                $data = $_REQUEST['comment'];
+                if(file_exists($file)){
+                    $handler = fopen($file, 'a');
+                    fwrite($handler, " ".$data);
+
+                    $dataString = 'File is Applied.';
+
+                    fclose($handler);
+                }
             }
 
         ?>
@@ -47,7 +84,7 @@
                         Create File : <span class="text-primary">Created</span>
                     </li>
                     <li class="list-group-item py-3 mb-3">
-                        File Data : <span class="text-primary">Comments ...</span>
+                        File Data : <span class="text-primary"><?php echo $dataString; ?></span>
                     </li>
                 </ul>
             </div>
