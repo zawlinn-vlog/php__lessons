@@ -133,8 +133,9 @@
                             <label for="agree" class="form-check-label">I accept all of agreement and policy</label>
                         </div>
 
-                        <div class="d-grid mt-4">
-                            <button class="btn btn-primary ms-auto px-5" type="submit" name="submit">Register</button>
+                        <div class="d-flex gap-2 mt-4">
+                            <button class="btn btn-primary ms-auto px-3" type="submit" name="submit">Register</button>
+                            
                         </div>
                     </form>
                 </div>
@@ -165,12 +166,11 @@
                         }
 
 
-                        $f = "./assets/media/text.txt";
-                        $h = fopen($f,"r");
-                        $size = filesize($f);
-                        $fileData = fread($h, $size);
-                        echo $fileData;
-
+                        // $f = "./assets/media/text.txt";
+                        // $h = fopen($f,"r");
+                        // $size = filesize($f);
+                        // $fileData = fread($h, $size);
+                        // echo $fileData;
                             
                         ?>
                              

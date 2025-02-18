@@ -1,6 +1,6 @@
 [![php](https://img.shields.io/badge/PHP-000?style=for-the-badge—=ko-fi—=white)](#)
 
-> I'm Zaw Linn Tun a Frontend Web Developer on [Zaw Linn - Vlog](https://www.youtube.com/@zawlinn-vlog). :heart:
+> I'm Zaw Linn Tun a Frontend Web Developer on [Zaw Linn - Vlog](https://www.github.com/zawlinn-vlog). :heart:
 
 <!-- #### PROJECT SIMPLE &mdash; -->
 
@@ -265,5 +265,3 @@ What I use packages are &mdash;
 - :mailbox_with_mail: How to reach me: zawlinn.profile@gmail.com.
 - :heart: In a relationship with React
 </details>
-
-

@@ -1,6 +1,6 @@
 [![php](https://img.shields.io/badge/PHP-000?style=for-the-badge—=ko-fi—=white)](#)
 
-> I'm Zaw Linn Tun a Frontend Web Developer on [Zaw Linn - Vlog](https://www.youtube.com/@zawlinn-vlog). :heart:
+> I'm Zaw Linn Tun a Frontend Web Developer on [Zaw Linn - Vlog](https://www.github.com/zawlinn-vlog). :heart:
 
 <!-- #### PROJECT SIMPLE &mdash; -->
 
@@ -26,7 +26,7 @@
 
 Addition &mdash;
 
-- \++ - Increment 
+- \++ - Increment
 - \-- - Decrement
 
 > Note: increment and decrement belong to two condiition operate first and print and print first and then print
@@ -40,6 +40,7 @@ eg.
 ```
 
 #### Comparison Operator &mdash;
+
 - \== - Equal (check only value not datatype)
 - \=== - strict Equal (check value and datatype)
 - \< - Less Than
@@ -48,13 +49,14 @@ eg.
 - \>= - Greater Than and Equal
 - \!= - Not Equal
 
-
 #### Logical Operator &mdash;
+
 - \&& - check both side of condition must be true;
 - \|| - check one side of condition have to be true;
-- \!  - reverse condition (if true return false and if false return true)
+- \! - reverse condition (if true return false and if false return true)
 
 #### Assignment Operators &mdash;
+
 - \= - Assignment only
 - \+ - addition and assign to itself
 - \-= - substraction and assign to itself
@@ -66,7 +68,6 @@ eg.
 
 - \? : - Check Condition (short form of `if statement`)
 
-
 #### Arrays &mdash;
 
 - Numremic Array
@@ -74,6 +75,7 @@ eg.
 - Multidimensional Array
 
 #### Nuremic Array &mdash;
+
 ```php
     # Method 1
     $arr = array();
@@ -84,7 +86,9 @@ eg.
     # Method 2
     $arr2 = array(200, 100, 500, 'array'); # Array Initializaiton Method
 ```
+
 #### Associative Array &mdash;
+
 ```php
     # Method 1
     $arr = array();
@@ -102,7 +106,7 @@ eg.
 
 What I use packages are &mdash;
 
-[![My Skills](https://skillicons.dev/icons?i=mysql,npm,git,github,vscode&perline=3)](https://skillicons.dev) 
+[![My Skills](https://skillicons.dev/icons?i=mysql,npm,git,github,vscode&perline=3)](https://skillicons.dev)
 
 <br>
 
@@ -128,5 +132,3 @@ What I use packages are &mdash;
 - :mailbox_with_mail: How to reach me: zawlinn.profile@gmail.com.
 - :heart: In a relationship with React
 </details>
-
-
