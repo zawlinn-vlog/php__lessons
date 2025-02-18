@@ -8,6 +8,93 @@
 
 <br/>
 
+### Why we use Session & Cookie
+
+- Session => Store on Server
+
+- Cookie => Store User's Browser
+
+```php
+    setCookie(name, value, expire, path, domain, security); # name is key and value is data
+```
+
+| Name     | Description                                                                     |
+| -------- | ------------------------------------------------------------------------------- |
+| name     | sets the name of the cookie                                                     |
+|          | stored in an enviroment variable (HTTP_COOKIE_VARS)                             |
+| value    | sets the value                                                                  |
+| expire   | sets cookie life in seconds (time from 00:00:00 GMT on 1<sup>st</sup> jan 1970) |
+| path     | sets folder that cookie valid, set/for cookie valid for all directories         |
+| domain   | Set domain which is valid for cookie, use two preiod at least                   |
+| security | 1 for HTTPS, 0 for HTTP                                                         |
+
+### printf() vs fprintf() &mdash;
+
+```php
+    $num = 50000000;
+    $str = 'Yangon';
+
+    printf("There are %d people in %s", $num, $str);
+```
+
+| Symbol   | Describe                                           |
+| -------- | -------------------------------------------------- |
+| %%       | Returns a percent sign                             |
+| %b       | Binary Number                                      |
+| %c       | The character according to the ASCII value         |
+| %d or %i | Signed decimal number (negative, zero or positive) |
+| %e or %E | Scientific notation using a lowercase (eg.1.2e+2)  |
+| %u       | Unsigned Integer(equal to or greather than zero)   |
+| %f       | Floating-point number (local settings aware)       |
+| %s       | The String Data                                    |
+| %o       | Octal number                                       |
+| %x or %X | Hexadecimal                                        |
+
+### String Methods &mdash;
+
+| method                       | Description                                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| lcfirst()                    | Converts to first letter to uppercase                                            |
+| ucwords()                    | converts to first letter of each word to uppercase                               |
+| strtoupper()                 | covert to all of letter to uppercase                                             |
+| strtolower()                 | convert to all of letter to lowercase                                            |
+| ltrim()                      | removes whitespace or other predefined characters from the left side of a string |
+| rtrim()                      | removes whitespace or other predefined characters from the left side of a string |
+| trim()                       | removes whitespace or other predefined characters from both sides of a string    |
+| strlen()                     | returns the length of a string                                                   |
+| strpos()                     | finds the position of the first occurrence of a string                           |
+| strrpos()                    | finds the postition of the last occurrence of a string                           |
+| stripos()                    | finds the position of the first occurrence of a string (case insensitive)        |
+| strripos()                   | finds the position of the last occurrence of a string (case insensitive)         |
+| str_word_count()             | Return number of words found in the string                                       |
+| substr(String, return, char) | cut length of string                                                             |
+| chunk_split()                | Split string into chunks                                                         |
+| md5()                        | MD5 hash of the string                                                           |
+| sha1()                       | SHA-1 hash of the string                                                         |
+| crypt()                      | Return hashed string using DES, Blowfish or D5 Algorithms                        |
+
+```php
+md5(string, raw);
+#raw - Optional, Specifies hex or binary output format
+#TRUE - Raw 16 character binary format
+#FLASE - Default 32 character hex number
+
+
+sha1(string, raw);
+#TRUE - Raw 20 character binary format
+#FLASE - Default 40 character hex number
+```
+
+#### String Compare &mdash;
+
+```php
+    strcmp(arg1, arg2);
+
+    # 0 - if the two strings are equal
+    # <0 - if string1 is less than string2
+    # >0 - if string1 is greater than string2
+```
+
 <br>
 
 <!-- ![Screenshot of Project](./s1.png) -->

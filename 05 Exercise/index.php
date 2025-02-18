@@ -39,7 +39,7 @@
     echo $_SERVER['SCRIPT_FILENAME'] . "<br/>";
     echo $_SERVER['SCRIPT_NAME'] . "<br/>";
 
-    # NOT FREQUENTLY
+    # NOT FREQUENTLY - SUPER GLOBAL
 
     echo $_SERVER["GATEWAY_INTERFACE"] . "<br/>";
     echo $_SERVER["SERVER_SOFTWARE"] . "<br/>";
@@ -52,13 +52,76 @@
     echo $_SERVER["SERVER_SIGNATURE"] . "<br/>";
 
 
+    # set Cookie
+
+    function mysetCookie(){
+        setcookie('BM', 'Brighter Myanmar',  time() + 3600,  '/',  '',0);
+    }
+
+    // mysetCookie();
+
+
+    # GET cookie
+
+    function getCookies(){
+        if(isset($_COOKIE['BM'])){
+            echo $_COOKIE['BM']; #HTTP_COOKIE_VARS
+        }
+    }
+
+    # DELETE COOKIE
+
+    function mydelCookie(){
+        setcookie('BM', 'Brighter Myanmar',  time() - 3600,  '/',  '',0);
+    }
+
+    if(isset($_COOKIE['BM'])){
+        mydelCookie();
+    }
+
+    echo isset($_COOKIE['BM']) ? 'Yes ': "no";
+
+
 
     echo "SERVER ARRAY <br/>";
 
 
-    foreach($_SERVER as $key => $val){
-        echo $key . "&nbsp; &mdash; &nbsp;" . $_SERVER[$key] . "<br/>";
-    }
+    // foreach($_SERVER as $key => $val){
+    //     echo $key . "&nbsp; &mdash; &nbsp;" . $_SERVER[$key] . "<br/>";
+    // }
+
+    getCookies();
+
+    $num = 50000000;
+    $str = 'Yangon';
+
+    printf("There are %d people in %s", $num, $str);
+
+    $tFile = "./assets/doc/test.txt";
+
+    $handler = fopen($tFile, 'w');
+
+    fprintf($handler, "There are %d people in %s", $num, $str);
+
+    $s = "There are 50000000 people in Yangon.";
+
+    echo lcfirst($s) . "<br/>";
+    echo ucwords($s) . "<br/>";
+    echo strtoupper($s) . "<br/>";
+    echo strtolower($s) . "<br/>";
+
+    $stest = "    Hello World!   ";
+
+    echo "String Length - " . strlen($stest) . "<br/>";
+
+    $btrim = ltrim($stest);
+
+    echo "String Length - " . strlen($btrim) . "<br/>";
+
+    
+    $string = "A the removes whitespace or other predeined character form the left side of a string."
+
+   
 
 ?>
 
