@@ -2,23 +2,29 @@
 
 session_start();
 
+
 $email = "zawlinn.profile@gmail.com";
 $pass = "Oxford@317";
 
+
+
 $pass = crypt(SHA1(MD5($pass)), SHA1(MD5($pass), false));
 
-
-echo $pass;
 
 if(isset($_REQUEST['lsubmit'])){
 
     $inputEmail = $_REQUEST['email'];
     $inputPass = $_REQUEST['pass'];
 
+
     $inputPass = crypt(SHA1(MD5($inputPass)), SHA1(MD5($inputPass), false));
 
-    echo $inputEmail;
-    print_r($pass === $inputPass);
+   if($inputEmail == $email && $inputPass == $pass){
+    $_SESSION['username'] = explode('.', $email)[0];
+    $_SESSION['password'] = $pass;
+
+    header("location: ./index.php");
+   }
 
 
 }
