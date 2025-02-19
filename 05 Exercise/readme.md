@@ -52,26 +52,26 @@
 
 ### String Methods &mdash;
 
-| method                       | Description                                                                      |
-| ---------------------------- | -------------------------------------------------------------------------------- |
-| lcfirst()                    | Converts to first letter to uppercase                                            |
-| ucwords()                    | converts to first letter of each word to uppercase                               |
-| strtoupper()                 | covert to all of letter to uppercase                                             |
-| strtolower()                 | convert to all of letter to lowercase                                            |
-| ltrim()                      | removes whitespace or other predefined characters from the left side of a string |
-| rtrim()                      | removes whitespace or other predefined characters from the left side of a string |
-| trim()                       | removes whitespace or other predefined characters from both sides of a string    |
-| strlen()                     | returns the length of a string                                                   |
-| strpos()                     | finds the position of the first occurrence of a string                           |
-| strrpos()                    | finds the postition of the last occurrence of a string                           |
-| stripos()                    | finds the position of the first occurrence of a string (case insensitive)        |
-| strripos()                   | finds the position of the last occurrence of a string (case insensitive)         |
-| str_word_count()             | Return number of words found in the string                                       |
-| substr(String, return, char) | cut length of string                                                             |
-| chunk_split()                | Split string into chunks                                                         |
-| md5()                        | MD5 hash of the string                                                           |
-| sha1()                       | SHA-1 hash of the string                                                         |
-| crypt()                      | Return hashed string using DES, Blowfish or D5 Algorithms                        |
+| method                          | Description                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| lcfirst($str)                   | Converts to first letter to uppercase                                            |
+| ucwords($str)                   | converts to first letter of each word to uppercase                               |
+| strtoupper($str)                | covert to all of letter to uppercase                                             |
+| strtolower($str)                | convert to all of letter to lowercase                                            |
+| ltrim($str)                     | removes whitespace or other predefined characters from the left side of a string |
+| rtrim($str)                     | removes whitespace or other predefined characters from the left side of a string |
+| trim($str)                      | removes whitespace or other predefined characters from both sides of a string    |
+| strlen($str)                    | returns the length of a string                                                   |
+| strpos($str, 'word')            | finds the position of the first occurrence of a string                           |
+| strrpos($str, 'word')           | finds the postition of the last occurrence of a string                           |
+| stripos($str, 'word')           | finds the position of the first occurrence of a string (case insensitive)        |
+| strripos($str, 'word')          | finds the position of the last occurrence of a string (case insensitive)         |
+| str_word_count($str)            | Return number of words found in the string                                       |
+| substr(String, return, char)    | cut length of string                                                             |
+| chunk_split($str, numword, '-') | Split string into chunks                                                         |
+| md5($str, true/false)           | MD5 hash of the string                                                           |
+| sha1($str, true/false)          | SHA-1 hash of the string                                                         |
+| crypt($str, 'abcd')             | Return hashed string using DES, Blowfish or D5 Algorithms                        |
 
 ```php
 md5(string, raw);
