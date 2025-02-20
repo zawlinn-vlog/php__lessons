@@ -4,19 +4,21 @@ include_once ("./assets/modules/header.php");
 
 include_once "./assets/modules/navbar.php";
 
-
 define('DB_HOST', 'localhost'); # DATABASE SERVER ADDRESS OR DOMAIN
 define('DB_USER', 'root'); # DATABASE ADMIN USER
 define('DB_PASS', ''); # DATABASE PASSWORD
 define('DB_NAME', 'ohnmar'); # DATABASE NAME NOT TABLE NAME
 
 
- $qry = "SELECT * FROM import";
+$qry = "SELECT * FROM members";
 
 
 function dbConnect(){
+
     $db = mysqli_connect(DB_HOST,DB_USER, DB_PASS, DB_NAME);
+
     // errorChecking($db);
+
     //    echo mysqli_connect_errno() > 0 ? die("Connection Error"): "Connection Success";
 
     if(mysqli_connect_errno() > 0){
@@ -31,6 +33,8 @@ function dbConnect(){
     }   
 
 }
+
+/*
 
 function getAllData($q){
 
@@ -48,6 +52,9 @@ function getAllData($q){
 // getAllData($qry);
 
 
+*/
+
+
 function errorChecking($err){
     echo "<pre>". print_r($err, true) . "</pre>";
 }
@@ -55,10 +62,68 @@ function errorChecking($err){
 
 dbConnect();
 
+
+
+/*
+function createUsername($name){
+
+  $fullname = explode(' ', $name);
+
+  $username = '';
+
+  // foreach($fullname as $key=> $val){
+
+  //   $username .= $val[0];
+  // }
+
+  return strtolower($fullname[0]);
+}
+
+*/
+
+
+function passGen($password){
+  
+  $pass = MD5($password);
+  $pass = SHA1($pass);
+  $pass = crypt($pass, $pass);
+
+  return $pass;
+}
+
+
+
+
+
+if(isset($_REQUEST['rsubmit'])){
+
+  $fullname = $_REQUEST['fullname'];
+  $username = $_REQUEST['username'];
+  $email = $_REQUEST['email'];
+  $password = passGen($_REQUEST['password']);
+
+  $connection = dbConnect();
+
+  print_r($connection) . "<br/>";
+  print_r($fullname) . "<br/>";
+  print_r($username) . "<br/>";
+  print_r($email) . "<br/>";
+  print_r($password) . "<br/>";
+
+  // $qry = "insert into members ('fullname', 'username', 'email', 'password') value ('$fullname', '$username','$email', '$password')";
+
+  // echo $qry;
+
+  $result = mysqli_query($connection, "insert into members (fullname, username, email, password) value ('$fullname', '$username','$email', '$password')");  
+
+  var_dump($result);
+
+}
+
 ?>
 
 
-<div class="main d-flex justify-content-center align-items-center">
+<div class="main mt-5 d-flex justify-content-center">
       <div class="login-form rounded overflow-hidden">
         <!-- Form Header Section -->
 
@@ -91,7 +156,18 @@ dbConnect();
               name="fullname"
               id="fullname"
               class="form-control"
-              required
+              
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="form-control"
+              
             />
           </div>
 
@@ -102,7 +178,7 @@ dbConnect();
               name="email"
               id="email"
               class="form-control"
-              required
+              
             />
           </div>
 
@@ -110,10 +186,10 @@ dbConnect();
             <label for="pass" class="form-label">Password</label
             ><input
               type="password"
-              name="pass"
+              name="password"
               id="pass"
               class="form-control"
-              required
+              
             />
           </div>
 
@@ -124,7 +200,7 @@ dbConnect();
               name="cpass"
               id="cpass"
               class="form-control"
-              required
+              
             />
           </div>
 
@@ -144,10 +220,10 @@ dbConnect();
           <div class="d-grid mt-2">
             <button
               class="btn btn-primary lbtn py-2"
-              name="lsubmit"
+              name="rsubmit"
               type="submit"
             >
-              login
+              Register
             </button>
           </div>
         </form>

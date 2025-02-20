@@ -16,6 +16,6 @@
     <link rel="stylesheet" href="./assets/fontawesomepro/css/all.css" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/main.prefix.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>

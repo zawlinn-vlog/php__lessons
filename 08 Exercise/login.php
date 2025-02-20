@@ -4,10 +4,73 @@ include_once ("./assets/modules/header.php");
 
 include_once "./assets/modules/navbar.php";
 
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'ohnmar');
+
+
+/* DB CONNETION */
+
+function dbConnect(){
+  $db = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+
+  if(mysqli_connect_errno() > 0){
+    die('Connection Fail!');
+  }
+  else{
+    // errCheck($db);
+    // echo "Connect Success!";
+    return $db;
+  }
+}
+
+/* ERROR CHECKING */
+
+function errCheck($db){
+
+  // print format 
+
+  echo "<pre>". print_r($db, true) . "</pre>";
+
+}
+
+dbConnect();
+
+
+if(isset($_REQUEST['lsubmit'])){
+
+  $inputEmail = $_REQUEST['email'];
+
+
+}
+
+
+function getSingleData($email){
+
+  $db = dbConnect();
+  $qry = "SELECT email, password from members where email='$email'";
+  $result = mysqli_query($db, $qry);
+
+  return $result ;
+}
+
+
+$getData = getSingleData('zawlinn.profile@gmail.com');
+errCheck($getData);
+
+
+
+
+
+
+
+
 ?>
 
 
-<div class="main d-flex justify-content-center align-items-center">
+<div class="main mt-5 d-flex justify-content-center ">
       <div class="login-form rounded overflow-hidden">
         <!-- Form Header Section -->
 
