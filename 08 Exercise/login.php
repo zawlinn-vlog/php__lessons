@@ -6,6 +6,11 @@ include_once ("./assets/modules/header.php");
 include_once "./assets/modules/navbar.php";
 
 
+if(isset($_SESSION['email'])){
+  header("location: index.php");
+}
+
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
@@ -60,20 +65,23 @@ if(isset($_REQUEST['lsubmit'])){
 
   $getData = getSingleData($inputEmail);
 
-  foreach($getData as $member){
-    $email = $member['email'];
-    $pass = $member['password'];
-  }
+  var_dump( $getData);
 
-  if($email == $inputEmail && $pass == $inputPass){
-
-    $_SESSION['email'] = $email; 
-    $_SESSION['password'] = $pass;
-
-    header("location: ./index.php");
-  }
-
+  if($getData){
+    foreach($getData as $member){
+      $email = $member['email'];
+      $pass = $member['password'];
+    }
   
+    if($email == $inputEmail && $pass == $inputPass){
+  
+      $_SESSION['email'] = $email; 
+      $_SESSION['password'] = $pass;
+  
+      header("location: ./index.php");
+    }
+  }
+ 
 
 }
 
@@ -84,9 +92,11 @@ function getSingleData($email){
   $qry = "SELECT email, password from members where email='$email'";
   $result = mysqli_query($db, $qry);
 
+  // echo mysqli_num_rows($result);
+
   if(mysqli_num_rows($result) > 0){
 
-    errCheck($result);
+    // errCheck($result);
 
     return $result;
 

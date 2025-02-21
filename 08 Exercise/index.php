@@ -53,17 +53,24 @@ include_once "./assets/modules/navbar.php";
 
                     $result = mysqli_query($db, $qry);
 
-                    if(mysqli_num_rows($result) > 0){
-
-                       
+                    if(mysqli_num_rows($result) > 0){   
 
                         foreach($result as $member){
+
+                            $id = $member['id'];
+
                             $doc = "<tr>";
                                 foreach($member as $item){
                                     $doc .= "<td>" . $item . "</td>";
                                 }
 
-                            $doc .= "<td class='d-flex gap-2'> <button class='btn btn-danger '> Delete </button><button class='btn btn-primary '> Edit </button> </td>";
+                            $doc .= "<td class='d-flex gap-2'>
+                            
+                                <form action='' method='get' class='d-flex gap-2'>
+                                    <button class='btn btn-danger' type='submit' name='delete' value=$id> Delete </button>
+                                    <button class='btn btn-primary' type='submit' name='edit' value=$id> Edit </button>
+                                </form>
+                            </td>";
                             $doc .= "</tr>";
                             echo $doc;
 
@@ -81,6 +88,36 @@ include_once "./assets/modules/navbar.php";
                    function errchk($db){
                     echo "<pre>" . print_r($db, true) . "</pre>";
                    }
+
+
+                   if(isset($_REQUEST['delete'])){
+
+                    $id = $_REQUEST['delete'];
+
+                    echo $id;
+
+                    deletData($id);                    
+                   }
+
+
+
+                   
+                function deletData($id){
+
+                    $qry = "DELETE FROM members where id=$id";
+
+                    $db = dbconnect();
+
+                    $res = mysqli_query($db, $qry);
+
+                    echo $res ?  "Delete Success" : "Delete Fail";
+
+                    // showAllData();
+
+                    header("location: index.php");
+
+
+                }
 
 
                ?>
