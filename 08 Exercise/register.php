@@ -17,9 +17,7 @@ function dbConnect(){
 
     $db = mysqli_connect(DB_HOST,DB_USER, DB_PASS, DB_NAME);
 
-    // errorChecking($db);
 
-    //    echo mysqli_connect_errno() > 0 ? die("Connection Error"): "Connection Success";
 
     if(mysqli_connect_errno() > 0){
 
@@ -27,32 +25,12 @@ function dbConnect(){
 
     }else  {
         
-        // echo "connection success";
-
         return $db;
     }   
 
 }
 
-/*
 
-function getAllData($q){
-
-    $connection = dbConnect();
-
-    $result = mysqli_query($connection, $q);
-
-    foreach($result as $item){
-        errorChecking($item);
-    }
-
-    // errorChecking($result);
-}
-
-// getAllData($qry);
-
-
-*/
 
 
 function errorChecking($err){
@@ -63,23 +41,6 @@ function errorChecking($err){
 dbConnect();
 
 
-
-/*
-function createUsername($name){
-
-  $fullname = explode(' ', $name);
-
-  $username = '';
-
-  // foreach($fullname as $key=> $val){
-
-  //   $username .= $val[0];
-  // }
-
-  return strtolower($fullname[0]);
-}
-
-*/
 
 
 function passGen($password){
@@ -104,19 +65,12 @@ if(isset($_REQUEST['rsubmit'])){
 
   $connection = dbConnect();
 
-  print_r($connection) . "<br/>";
-  print_r($fullname) . "<br/>";
-  print_r($username) . "<br/>";
-  print_r($email) . "<br/>";
-  print_r($password) . "<br/>";
-
-  // $qry = "insert into members ('fullname', 'username', 'email', 'password') value ('$fullname', '$username','$email', '$password')";
-
-  // echo $qry;
-
+ if(!mysqli_connect_errno() > 0){
   $result = mysqli_query($connection, "insert into members (fullname, username, email, password) value ('$fullname', '$username','$email', '$password')");  
 
-  var_dump($result);
+  header('location: login.php');
+ }
+
 
 }
 

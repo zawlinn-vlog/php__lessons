@@ -1,4 +1,7 @@
+<?php
+    session_start();
 
+?>
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a href="#" class="navbar-brand">LOGO</a>
@@ -17,7 +20,7 @@
 
                 <?php
 
-                    if(isset($_SESION['username'])){
+                    if(isset($_SESSION['email'])){
 
                         $secNav = <<<NAVBAR
                             <li class="nav-item">

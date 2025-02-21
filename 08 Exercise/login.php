@@ -1,5 +1,6 @@
 <?php
 
+
 include_once ("./assets/modules/header.php");
 
 include_once "./assets/modules/navbar.php";
@@ -9,6 +10,9 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'ohnmar');
+
+$email = '';
+$pass = '';
 
 
 /* DB CONNETION */
@@ -39,10 +43,37 @@ function errCheck($db){
 dbConnect();
 
 
+function passGen($password){
+
+  $pass = MD5($password);
+  $pass = SHA1($pass);
+  $pass = crypt($pass, $pass);
+
+  return $pass;
+}
+
+
 if(isset($_REQUEST['lsubmit'])){
 
   $inputEmail = $_REQUEST['email'];
+  $inputPass = passGen($_REQUEST['password']);
 
+  $getData = getSingleData($inputEmail);
+
+  foreach($getData as $member){
+    $email = $member['email'];
+    $pass = $member['password'];
+  }
+
+  if($email == $inputEmail && $pass == $inputPass){
+
+    $_SESSION['email'] = $email; 
+    $_SESSION['password'] = $pass;
+
+    header("location: ./index.php");
+  }
+
+  
 
 }
 
@@ -53,12 +84,25 @@ function getSingleData($email){
   $qry = "SELECT email, password from members where email='$email'";
   $result = mysqli_query($db, $qry);
 
-  return $result ;
+  if(mysqli_num_rows($result) > 0){
+
+    errCheck($result);
+
+    return $result;
+
+    // foreach($result as $item){
+    //   $email = $item['email'] ;
+    //   $pass =  $item['password'];
+    // }
+  }
+
+
+  
 }
 
 
-$getData = getSingleData('zawlinn.profile@gmail.com');
-errCheck($getData);
+// getSingleData('zawlinn.profile@gmail.com');
+
 
 
 
@@ -111,7 +155,7 @@ errCheck($getData);
             <label for="pass" class="form-label">Password</label
             ><input
               type="password"
-              name="pass"
+              name="password"
               id="pass"
               class="form-control"
               required
