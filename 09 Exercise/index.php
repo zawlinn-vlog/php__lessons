@@ -2,35 +2,36 @@
 include_once "./assets/modules/db.php";
 
 
-// $res = dbconnection();
+
+$sub = json_decode(file_get_contents("./assets/js/viewers.json"));
+
+// errchk($sub);
 
 
-// errchk($res);
+$db =dbconnection();
+errchk($db);
+
+// foreach ($sub as $item){
+
+//     foreach($item as $key => $val){
+//         echo $key . " => "  . $val . "<br/>";
+//     }
+
+//     echo "<hr/>";
+// }
 
 
-function getAllData(){
 
-    $qry = "SELECT * FROM members";
+foreach($sub as $item){
+    $qry = "INSERT INTO viewers (tutorial_id, total_views, unique_views) values ($item->id, $item->total_views, $item->unique_views)";
+    // $db = dbconnection();
 
-    $db = dbconnection();
+  
 
-    $res = mysqli_query($db, $qry);
+    $result = mysqli_query($db, $qry);
 
-    
-
-    while($row = mysqli_fetch_assoc($res)){
-        echo $row['fullname'] . "<br/>";
-        echo $row['username'] . "<br/>";
-        echo $row['email'] . "<br/>";
-        echo $row['password'] . "<br/>";
-        echo "<hr/>";
-    }   
+    echo $result;
 }
-
-
-getAllData();
-
-
 
 
 include_once('./assets/modules/header.php');
