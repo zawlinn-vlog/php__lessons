@@ -73,8 +73,6 @@
     // preg_match("![a-z]!", $var);
 
 
-
-
     # range could be [0-9] [a-z] [A-Z] [a-Z]
 
 
@@ -139,6 +137,95 @@
 | \w           | a word character(a-z,A-Z, 0-9,\_)                               |
 | \W           | a non-word character                                            |
 | ^$           | matches empty string                                            |
+
+```php
+    #preg_match_all(pattern, subject, matches, flags);
+
+    $str = "we are open 7:40 am and open 5:30 pm";
+    preg_match_all('!(\d+:+\d+)\s*(am|pm)!', $str, $matches, PREG_SET_ORDER);
+    preg_match_all('!(\d+:+\d+)\s*(am|pm)!', $str, $matches, PREG_PATTERN_ORDER);
+
+    echo "<pre>" . print_r($matches, true) . "</pre>";
+
+```
+
+| Patterns | Description                        |
+| -------- | ---------------------------------- |
+| pattern  | Reg pattern to search for          |
+| subject  | String or paragraph to match       |
+| matches  | Array where all match are assigned |
+| flags    | Define result order                |
+|          | PREG_PATTERN_ORDER                 |
+|          | PREG_SET_ORDER                     |
+
+```php
+    # \ + * ? [ ^ ] $ ( ) { } = ! < > : -
+    preg_quote($str)
+```
+
+```php
+    # positive Look ahead
+
+    preg_match('/A(?=C)/', $str);
+    preg_match('/A(?=\d)/', $str);
+    preg_match('/A(?=\w)/', $str);
+
+    # Positive look behind
+
+    preg_match('/(?<=@)B/', $str);
+
+    # Negative look ahead
+
+    preg_match('/A(?!@)/', $str);
+
+    # Negative look ahead
+
+    preg_match('/(?!@)C/', $str);
+
+
+    preg_match('/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[\w]))/', $passwrod);
+
+```
+
+### Date Function &mdash;
+
+```php
+    date_default_timezone_set('Asia/Rangoon');
+
+    getdate();
+
+    time();
+
+    NOW();
+
+    $date = date('', time());
+```
+
+| Options | Descriptions                                                |
+| ------- | ----------------------------------------------------------- |
+| a       | 'am' or 'pm' lowercase pm                                   |
+| A       | 'AM' or 'PM' uppercase PM                                   |
+| d       | Day of month, a number with leading zero - 20               |
+| D       | Day of week (three letters) Thu                             |
+| F       | Month name january                                          |
+| h       | Hour (12 hour format - leading zero) 12                     |
+| H       | Hour (24 hour format - leading zero) 22                     |
+| g       | Hour (12 hour format - no leading zero) 12                  |
+| G       | Hour (24 hour format - no leading zero) 22                  |
+| i       | Minute (0 - 59) 23                                          |
+| j       | Day of the month (no leading zero) 20                       |
+| l       | (Lower 'L') Day of week Thursday                            |
+| L       | Leap year ('1' for yes, '0' for no)                         |
+| m       | Month of year (number - leading zero)                       |
+| M       | Month of year (number - no leading zero)                    |
+| r       | The RFC 2022 formatted date Thu, 21 Dec 2000 16:01:07 +0200 |
+| n       | Month of year (number - no leading zero)                    |
+| s       | Seconds of hour                                             |
+| U       | Time Stamp                                                  |
+| y       | Year (two digit)                                            |
+| Y       | Year (four digit)                                           |
+| z       | Day of year (0 - 365)                                       |
+| Z       | Offset in seconds from GMT +5                               |
 
 <br/>
 
