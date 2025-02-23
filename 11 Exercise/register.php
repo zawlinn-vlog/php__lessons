@@ -1,6 +1,6 @@
 <?php
 
-include_once ("./assets/modules/header.php");
+include_once ("./assets/modules/head.php");
 
 include_once "./assets/modules/navbar.php";
 
