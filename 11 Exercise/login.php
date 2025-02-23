@@ -31,12 +31,18 @@ include_once "./assets/modules/navbar.php";
 
         <!-- FORM INPUT SECTION -->
 
+        <!-- 
+          was-validated
+
+          invalid-feedback
+        -->
+
         <form
           class="login-form__container d-grid gap-4"
           action="<?php $_PHP_SELF ?>"
           method="post"
           enctype="multipart/form-data"
-        >
+        > 
           <div class="form-group">
             <label for="email" class="form-label">Email</label>
             <input
@@ -46,6 +52,7 @@ include_once "./assets/modules/navbar.php";
               class="form-control"
               required
             />
+            <span class="invalid-feedback">your email must be email format &mdash;</span>
           </div>
 
           <div class="form-group">
@@ -57,6 +64,8 @@ include_once "./assets/modules/navbar.php";
               class="form-control"
               required
             />
+            <span class="invalid-feedback">your password must have a special characters &mdash;</span>
+
           </div>
 
           <div class="form-check">
